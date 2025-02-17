@@ -12,6 +12,8 @@ public class GameSettings : MonoBehaviour
 
     void Awake()
     {
+        musicVolume.value = 0.5f;
+        soundFXVolume.value = 0.5f;
         musicVolume.onValueChanged.AddListener(delegate { UpdateMusicVolume(); });
         soundFXVolume.onValueChanged.AddListener(delegate { UpdateSoundFXVolume(); });
     }
