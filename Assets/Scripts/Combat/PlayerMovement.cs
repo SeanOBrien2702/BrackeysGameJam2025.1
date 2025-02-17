@@ -37,8 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isDashing)
         {
-            Debug.Log("dashing " + lastDirection + " " + direction);
-            body.linearVelocity = lastDirection.normalized * dashSpeed ;
+            body.linearVelocity = lastDirection.normalized * dashSpeed;
         }
         else
         {
@@ -67,8 +66,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimer = 0;
             isDashing = true;
-            Invoke("StopDash", dashDuration);
-            
+            Invoke("StopDash", dashDuration);          
         }    
     }
 
