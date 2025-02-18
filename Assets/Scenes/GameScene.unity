@@ -1445,6 +1445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2070711027}
   startingHealth: 15
+  abilities:
+  - {fileID: 11400000, guid: 7651c20bb82421f4989aad88677f8274, type: 2}
 --- !u!70 &1336212078
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
