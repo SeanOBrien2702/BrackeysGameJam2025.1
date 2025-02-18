@@ -3,17 +3,47 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    public static TimeController Instance { get; private set; }
+    bool isForcedPaused = false;
 
-    void Awake()
+    private void Start()
     {
-        if (Instance != null && Instance != this)
+        Boss.OnBossDefeated += Boss_OnBossDefeated;
+        PlayerController.OnPlayerDefeated += PlayerController_OnPlayerDefeated;
+        SceneController.OnSceneChange += SceneController_OnSceneChange;
+        CrossSceneUI.OnUIToggled += CrossSceneUI_OnUIToggled;
+    }
+
+    private void OnDestroy()
+    {
+        Boss.OnBossDefeated -= Boss_OnBossDefeated;
+        PlayerController.OnPlayerDefeated -= PlayerController_OnPlayerDefeated;
+        SceneController.OnSceneChange -= SceneController_OnSceneChange;
+        CrossSceneUI.OnUIToggled -= CrossSceneUI_OnUIToggled;
+    }
+
+    private void Boss_OnBossDefeated()
+    {
+        Time.timeScale = 0;
+        isForcedPaused = true;
+    }
+
+    private void PlayerController_OnPlayerDefeated()
+    {
+        Time.timeScale = 0;
+        isForcedPaused = true;
+    }
+
+    private void SceneController_OnSceneChange(string sceneName)
+    {
+        Time.timeScale = 1;
+        isForcedPaused = false;
+    }
+
+    private void CrossSceneUI_OnUIToggled(bool isToggled)
+    {
+        if (!isForcedPaused)
         {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
+            Time.timeScale = Time.timeScale == 1 ? 0 : 1;
         }
     }
 }

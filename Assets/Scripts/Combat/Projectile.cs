@@ -1,6 +1,4 @@
-
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
@@ -11,7 +9,6 @@ public class Projectile : MonoBehaviour
 
     public Transform Target { get => target; set => target = value; }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -26,7 +23,6 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == shooter) return;
-        Debug.Log("trigger " + collision.gameObject.name);
 
         if(collision.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
