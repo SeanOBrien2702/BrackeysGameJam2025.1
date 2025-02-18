@@ -11,12 +11,13 @@ public class PlayerMovement : MonoBehaviour
     float dashTimer;
     Vector3 left = new Vector3(-1, 1, 1);
     Rigidbody2D body;
-
+    CapsuleCollider2D collider;
     bool isDashing = false;
 
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        collider = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimer = 0;
             isDashing = true;
+            collider.enabled = false;
             Invoke("StopDash", dashDuration);          
         }    
     }
@@ -73,5 +75,6 @@ public class PlayerMovement : MonoBehaviour
     void StopDash()
     {
         isDashing = false;
+        collider.enabled = true;
     }
 }

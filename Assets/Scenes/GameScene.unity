@@ -441,6 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666957864}
+  - component: {fileID: 666957865}
   - component: {fileID: 666957863}
   - component: {fileID: 666957862}
   - component: {fileID: 666957861}
@@ -594,6 +595,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666957865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666957860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4320ecbf1cda64abe1d7d358fcf530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &707109327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1444,7 +1458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2070711027}
-  startingHealth: 15
+  startingHealth: 200
   abilities:
   - {fileID: 11400000, guid: 7651c20bb82421f4989aad88677f8274, type: 2}
 --- !u!70 &1336212078
@@ -1492,7 +1506,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336212074}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2215,6 +2229,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 887379362740449199, guid: 58051f583c967be48bfedb9503f257c2, type: 3}
+      propertyPath: dashSpeed
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 887379362740449199, guid: 58051f583c967be48bfedb9503f257c2, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2022837972621191174, guid: 58051f583c967be48bfedb9503f257c2, type: 3}
       propertyPath: m_Name
       value: Player
