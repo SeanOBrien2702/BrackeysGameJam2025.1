@@ -20,14 +20,23 @@ public class Projectile : MonoBehaviour
         shooter = newShooter;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HandleCollision(collision.gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == shooter) return;
+        HandleCollision(collision.gameObject);
+    }
 
-        if(collision.TryGetComponent<IDamageable>(out IDamageable damageable))
-        {
-            damageable.TakeDamage(damage);
-        }
+    private void HandleCollision(GameObject collidedWith)
+    {
+        if (collidedWith.CompareTag(shooter)) return;
+
+        var parentDamageable = collidedWith.GetComponentInParent<IDamageable>();
+
+        parentDamageable?.TakeDamage(damage);
         Destroy(gameObject);
     }
 }
