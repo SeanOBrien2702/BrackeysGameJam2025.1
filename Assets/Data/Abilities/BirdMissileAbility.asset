@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db40d6020b0616047a155f7ddd21d216, type: 3}
   m_Name: BirdMissileAbility
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 6
   numAttacks: 8
   attackCooldown: 0.4
   screenSize: {x: 8.5, y: 6.5}
