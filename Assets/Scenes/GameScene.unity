@@ -969,7 +969,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.3849373, y: -0.8154048}
+  m_Offset: {x: 0, y: -0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -979,7 +979,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 15.969799, y: 5.7616396}
+  m_Size: {x: 16, y: 6}
   m_EdgeRadius: 0
 --- !u!1 &850557168
 GameObject:
@@ -2041,7 +2041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5160610120457021742, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5160610120457021742, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2079,13 +2079,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5160610120457021742, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6132196691202689354, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9089304
       objectReference: {fileID: 0}
     - target: {fileID: 6132196691202689354, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.41694793
+      value: 0.41694784
       objectReference: {fileID: 0}
     - target: {fileID: 6466250229467120182, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2093,7 +2097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6466250229467120182, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.3946968
+      value: 0.3946967
       objectReference: {fileID: 0}
     - target: {fileID: 7909973521853668889, guid: ba8b6265af6164d4b846c1f112023209, type: 3}
       propertyPath: m_LocalRotation.w

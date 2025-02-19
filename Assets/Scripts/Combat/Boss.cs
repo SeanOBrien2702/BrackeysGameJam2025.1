@@ -11,9 +11,21 @@ public class Boss : MonoBehaviour, IDamageable
 
     [SerializeField] private List<Ability> abilities = new();
 
+    public Animator Animator
+    {
+        get;
+        private set;
+    }
+
+    private void Awake()
+    {
+        Animator = GetComponentInChildren<Animator>();
+    }
+
     void Start()
     {
-        for (var x = 0; x < abilities.Count; x++) {
+        for (var x = 0; x < abilities.Count; x++)
+        {
             abilities[x] = Instantiate(abilities[x]);
         }
 
@@ -30,13 +42,23 @@ public class Boss : MonoBehaviour, IDamageable
         }
     }
 
+    public void SetCollisionEnabled(bool isEnabled)
+    {
+        var colliders = GetComponentsInChildren<Collider2D>();
+
+        foreach (var collider in colliders)
+        {
+            collider.enabled = isEnabled;
+        }
+    }
+
     private void Update()
     {
         foreach (var ability in abilities)
         {
             if (ability.ShouldUse())
             {
-                ability.Use(gameObject);
+                ability.Use(this);
             }
         }
     }
