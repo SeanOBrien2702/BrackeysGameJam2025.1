@@ -5,11 +5,12 @@ using UnityEngine;
 public class Boss : MonoBehaviour, IDamageable
 {
     public static event Action OnBossDefeated = delegate { };
-    [SerializeField] HealthBarUI healthBar;
-    [SerializeField] int startingHealth;
-    int health;
-
+    [SerializeField] private HealthBarUI healthBar;
+    [SerializeField] private int startingHealth;
     [SerializeField] private List<Ability> abilities = new();
+
+    private int health;
+    private bool canCast = true;
 
     public Animator Animator
     {
@@ -22,7 +23,7 @@ public class Boss : MonoBehaviour, IDamageable
         Animator = GetComponentInChildren<Animator>();
     }
 
-    void Start()
+    private void Start()
     {
         for (var x = 0; x < abilities.Count; x++)
         {
@@ -52,8 +53,18 @@ public class Boss : MonoBehaviour, IDamageable
         }
     }
 
+    public void SetCanCast(bool canCast)
+    {
+        this.canCast = canCast;
+    }
+
     private void Update()
     {
+        if (!canCast)
+        {
+            return;
+        }
+
         foreach (var ability in abilities)
         {
             if (ability.ShouldUse())

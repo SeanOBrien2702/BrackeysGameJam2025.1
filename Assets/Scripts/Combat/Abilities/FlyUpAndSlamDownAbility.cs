@@ -33,6 +33,7 @@ public class FlyUpAndSlamDownAbility : Ability
         indicator.transform.localScale = hitSize;
 
         caster.SetCollisionEnabled(false);
+        caster.SetCanCast(false);
 
         // Wait for the takeoff animation to take the boss off screen, then move to the new pos and play the animation
         // to come back down
@@ -64,6 +65,7 @@ public class FlyUpAndSlamDownAbility : Ability
             }
 
             caster.SetCollisionEnabled(true);
+            caster.SetCanCast(true);
         });
     }
 
