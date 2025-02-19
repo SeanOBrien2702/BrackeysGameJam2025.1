@@ -4,12 +4,12 @@ public class Projectile : MonoBehaviour
 {
     private static float DESTROY_DIST = 0.3f;
 
-    [SerializeField] float speed;
+    [SerializeField] protected float speed;
     [SerializeField] int damage;
     Vector2 target;
     string shooter;
 
-    void Update()
+    protected virtual void Update()
     {
         if (Vector2.Distance(target, transform.position) < DESTROY_DIST)
         {
@@ -37,9 +37,9 @@ public class Projectile : MonoBehaviour
     }
 
     private void HandleCollision(GameObject collidedWith)
-    {
+    {            
         if (collidedWith.CompareTag(shooter)) return;
-
+        if (collidedWith.GetComponent<Projectile>()) return;
         var parentDamageable = collidedWith.GetComponentInParent<IDamageable>();
 
         parentDamageable?.TakeDamage(damage);
