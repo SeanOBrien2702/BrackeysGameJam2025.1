@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] int startingHealth;
     int health;
 
-    [SerializeField] Transform boss;
+    [SerializeField] Boss boss;
     [SerializeField] Projectile projectilePrefab;
     [SerializeField] float attackCooldown;
     float attackTimer = 0;
@@ -20,12 +20,13 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Update()
     {
+        Debug.Log($"Boss {boss} valid {boss.IsValidTarget}");
         attackTimer += Time.deltaTime;
-        if(attackTimer > attackCooldown)
+        if(attackTimer > attackCooldown && boss.IsValidTarget)
         {
             attackTimer = 0;
             Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            projectile.Initialize(boss, gameObject.tag);
+            projectile.Initialize(boss.transform.position, gameObject.tag);
         }
     }
 

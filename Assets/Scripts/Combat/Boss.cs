@@ -5,12 +5,15 @@ using UnityEngine;
 public class Boss : MonoBehaviour, IDamageable
 {
     public static event Action OnBossDefeated = delegate { };
+
+    [NonSerialized] public bool CanCast = true;
+    [NonSerialized] public bool IsValidTarget = true;
+
     [SerializeField] private HealthBarUI healthBar;
     [SerializeField] private int startingHealth;
     [SerializeField] private List<Ability> abilities = new();
 
     private int health;
-    private bool canCast = true;
 
     public Animator Animator
     {
@@ -53,14 +56,9 @@ public class Boss : MonoBehaviour, IDamageable
         }
     }
 
-    public void SetCanCast(bool canCast)
-    {
-        this.canCast = canCast;
-    }
-
     private void Update()
     {
-        if (!canCast)
+        if (!CanCast)
         {
             return;
         }

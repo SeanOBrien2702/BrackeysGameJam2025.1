@@ -21,6 +21,8 @@ public class FlyUpAndSlamDownAbility : Ability
 
     public override void Use(Boss caster)
     {
+        Debug.Log($"Casting ability");
+
         lastUseTime = Time.time;
 
         caster.Animator.SetBool("TakeOff", true);
@@ -33,7 +35,8 @@ public class FlyUpAndSlamDownAbility : Ability
         indicator.transform.localScale = hitSize;
 
         caster.SetCollisionEnabled(false);
-        caster.SetCanCast(false);
+        caster.CanCast = false;
+        caster.IsValidTarget = false;
 
         // Wait for the takeoff animation to take the boss off screen, then move to the new pos and play the animation
         // to come back down
@@ -65,7 +68,8 @@ public class FlyUpAndSlamDownAbility : Ability
             }
 
             caster.SetCollisionEnabled(true);
-            caster.SetCanCast(true);
+            caster.CanCast = true;
+            caster.IsValidTarget = true;
         });
     }
 

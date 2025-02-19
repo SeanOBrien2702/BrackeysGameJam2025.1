@@ -2,19 +2,25 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private static float DESTROY_DIST = 0.3f;
+
     [SerializeField] float speed;
     [SerializeField] int damage;
-    Transform target;
+    Vector2 target;
     string shooter;
-
-    public Transform Target { get => target; set => target = value; }
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if (Vector2.Distance(target, transform.position) < DESTROY_DIST)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
-    public void Initialize(Transform newTarget, string newShooter)
+    public void Initialize(Vector2 newTarget, string newShooter)
     {
         target = newTarget;
         shooter = newShooter;

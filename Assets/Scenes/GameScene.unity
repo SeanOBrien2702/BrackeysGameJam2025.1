@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8045791061490607269}
   startingHealth: 10
-  boss: {fileID: 1336212076}
+  boss: {fileID: 1336212077}
   projectilePrefab: {fileID: 6190139910053519358, guid: 9d8e52f5cdcb3ab458509325c401afb8, type: 3}
   attackCooldown: 0.4
 --- !u!70 &60672097
