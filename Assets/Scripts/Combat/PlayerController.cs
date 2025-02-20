@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     void Start()
     {
         health = startingHealth;
-        bookAnimator = bookTransform.GetChild(0).GetComponent<Animator>();
+        bookAnimator = bookTransform.GetComponentInChildren<Animator>();
     }
 
     void Update()

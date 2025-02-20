@@ -13,11 +13,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D body;
     CapsuleCollider2D collider;
     bool isDashing = false;
+    Animator animator;
 
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
         collider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -29,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
             !isDashing)
         {
             lastDirection = direction;
+            animator.SetBool("Walking", true);
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
         }
         Dash();
         LookAtDirection();
@@ -62,9 +69,10 @@ public class PlayerMovement : MonoBehaviour
     void Dash()
     {
         dashTimer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.Space) &&
+        if (Input.GetKeyDown(KeyCode.Space) &&
            dashTimer > dashCooldown)
-        {
+        { 
+            animator.SetTrigger("Dash");
             dashTimer = 0;
             isDashing = true;
             collider.enabled = false;
