@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BookFollowSpring
   m_EditorClassIdentifier: 
   tension: 30
-  friction: 30
+  friction: 5
   mass: 1
   trailDelay: 0
