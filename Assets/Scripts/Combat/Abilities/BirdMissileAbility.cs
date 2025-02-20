@@ -1,15 +1,15 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BirdMissileAbility", menuName = "Ability/BirdMissileAbility", order = 0)]
 public class BirdMissileAbility : Ability
 {
     [SerializeField] private float cooldown = 6;
-    [SerializeField] private float numAttacks = 8;
-    [SerializeField] private float attackCooldown = 0.25f;
+    [SerializeField] private int numAttacks = 8;
     [SerializeField] private Vector2 screenSize = new(8.5f, 6.5f);
     [SerializeField] private GameObject missilePrefab;
+    [SerializeField] private float animationTime = 1f;
 
-    int attacksUsed = 0;
     private float lastUseTime = 0;
 
     public override bool ShouldUse()
@@ -19,35 +19,27 @@ public class BirdMissileAbility : Ability
 
     public override void Use(Boss caster)
     {
-        Debug.Log($"Casting ability bird missile" );
-
         lastUseTime = Time.time;
-        attacksUsed = 0;
 
-        caster.CanCast = false;       
+        caster.CanCast = false;
         caster.Animator.SetBool("DroppingMissiles", true);
         caster.Animator.SetTrigger("DroppingMissilesTrigger");
 
-        SpawnMissile(caster);
-    }
+        var missileTime = animationTime / numAttacks;
 
-    private void SpawnMissile(Boss caster)
-    {
-        if(attacksUsed <= numAttacks)
+        for (var x = 0; x < numAttacks; x++)
         {
-            new GoodTimer(attackCooldown, () =>
+            new GoodTimer(missileTime * x, () =>
             {
                 Instantiate(missilePrefab, GetRandomPosition(), Quaternion.identity);
-                attacksUsed++;
-                SpawnMissile(caster);
             });
         }
-        else
+
+        new GoodTimer(animationTime, () =>
         {
-            caster.CanCast = true;
             caster.Animator.SetBool("DroppingMissiles", false);
-        }
-            
+            caster.CanCast = true;
+        });
     }
 
     private Vector3 GetRandomPosition()
