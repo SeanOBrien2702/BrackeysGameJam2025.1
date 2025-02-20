@@ -68,6 +68,8 @@ public class Boss : MonoBehaviour, IDamageable
             if (ability.ShouldUse())
             {
                 ability.Use(this);
+
+                return;
             }
         }
     }
