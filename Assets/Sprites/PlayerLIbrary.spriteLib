@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: RightHand
+    m_Hash: 905530672
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Wrong Hand
+      m_Hash: 108116464
+      m_Sprite: {fileID: 3866455538980282103, guid: 9f87ea5998694fa48bb2af76277b3b95, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3866455538980282103, guid: 9f87ea5998694fa48bb2af76277b3b95, type: 3}
+    - m_Name: NiceHand
+      m_Hash: 1052619236
+      m_Sprite: {fileID: -423233991, guid: e5ea05394db317c4881fe38d94ee9209, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -423233991, guid: e5ea05394db317c4881fe38d94ee9209, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638755984336852520
+  m_Version: 1

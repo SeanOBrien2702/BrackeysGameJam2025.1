@@ -1,37 +1,60 @@
-
+using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float speed;
+    private static float DESTROY_DIST = 0.3f;
+
+    [SerializeField] protected float speed;
     [SerializeField] int damage;
-    Transform target;
+    Vector2 target;
     string shooter;
 
-    public Transform Target { get => target; set => target = value; }
-
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if (Vector2.Distance(target, transform.position) < DESTROY_DIST)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        RotateTowardsBoss();
     }
 
-    public void Initialize(Transform newTarget, string newShooter)
+    private void RotateTowardsBoss()
+    {
+        Debug.Log("tets");
+        Vector3 targetVector = new Vector3(target.x, target.y, 0);
+        Vector2 direction = (targetVector - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    public void Initialize(Vector2 newTarget, string newShooter)
     {
         target = newTarget;
         shooter = newShooter;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HandleCollision(collision.gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == shooter) return;
-        Debug.Log("trigger " + collision.gameObject.name);
+        HandleCollision(collision.gameObject);
+    }
 
-        if(collision.TryGetComponent<IDamageable>(out IDamageable damageable))
-        {
-            damageable.TakeDamage(damage);
-        }
+    private void HandleCollision(GameObject collidedWith)
+    {            
+        if (collidedWith.CompareTag(shooter)) return;
+        if (collidedWith.GetComponent<Projectile>()) return;
+        var parentDamageable = collidedWith.GetComponentInParent<IDamageable>();
+
+        parentDamageable?.TakeDamage(damage);
         Destroy(gameObject);
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db40d6020b0616047a155f7ddd21d216, type: 3}
+  m_Name: BirdMissileAbility
+  m_EditorClassIdentifier: 
+  cooldown: 6
+  numAttacks: 8
+  attackCooldown: 0.4
+  screenSize: {x: 8.5, y: 6.5}
+  missilePrefab: {fileID: 6005392280710315917, guid: ba3379399c877624cbc7fa54dbcd8ae0, type: 3}
