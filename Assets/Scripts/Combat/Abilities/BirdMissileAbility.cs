@@ -23,7 +23,6 @@ public class BirdMissileAbility : Ability
     {
         lastUseTime = Time.time;
 
-        Debug.Log($"CanCast: false");
         caster.CanCast = false;
         caster.Animator.SetBool("DroppingMissiles", true);
         caster.Animator.SetTrigger("DroppingMissilesTrigger");
@@ -40,13 +39,11 @@ public class BirdMissileAbility : Ability
 
         new GoodTimer(animationEnterTime + effectDuration, () =>
         {
-            Debug.Log($"Stop dropping missiles animation");
             caster.Animator.SetBool("DroppingMissiles", false);
         });
 
         new GoodTimer(animationEnterTime + effectDuration + animationExitTime, () =>
         {
-            Debug.Log($"CanCast: true");
             caster.CanCast = true;
         });
     }
