@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -18,6 +20,16 @@ public class Projectile : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        RotateTowardsBoss();
+    }
+
+    private void RotateTowardsBoss()
+    {
+        Debug.Log("tets");
+        Vector3 targetVector = new Vector3(target.x, target.y, 0);
+        Vector2 direction = (targetVector - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public void Initialize(Vector2 newTarget, string newShooter)
