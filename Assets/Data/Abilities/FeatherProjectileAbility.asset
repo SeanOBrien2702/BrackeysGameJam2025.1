@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e800f07513b5f374e9c43425278f7a7f, type: 3}
   m_Name: FeatherProjectileAbility
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 2.8
   projectilePrefab: {fileID: 7046588566751154560, guid: 14485ebca0a13aa45b6006f4d79db753, type: 3}
   numProjectiles: 3
   damage: 4
   angleSpread: 15
   angleIncrement: 90
+  animationTime: 1

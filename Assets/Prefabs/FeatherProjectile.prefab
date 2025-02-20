@@ -44,10 +44,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9096011904714182050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafea46e4b839c2459e0d0ae7f4a3d51, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bc4998a560752949ac85f7222d9b54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 8
+  acceleration: 8
   damage: 1
 --- !u!212 &7964975296211245582
 SpriteRenderer:

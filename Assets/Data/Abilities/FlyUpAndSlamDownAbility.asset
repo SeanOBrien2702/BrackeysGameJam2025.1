@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6180dfc14b04694fbd9149db8077198, type: 3}
-  m_Name: HitSquareAreaAbility
+  m_Name: FlyUpAndSlamDownAbility
   m_EditorClassIdentifier: 
   cooldown: 10
   squareRange: 3
   hitSize: {x: 8, y: 3}
   squareIndicatorPrefab: {fileID: 7673001825143474800, guid: 72e62e5ea56713a4a9ce10fcacca6818, type: 3}
   damageDealt: 1
-  timeInAir: 1
+  timeInAir: 2
   decscendAnimationTime: 1.6
