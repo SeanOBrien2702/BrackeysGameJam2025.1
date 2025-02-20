@@ -18,4 +18,4 @@ MonoBehaviour:
   squareIndicatorPrefab: {fileID: 7673001825143474800, guid: 72e62e5ea56713a4a9ce10fcacca6818, type: 3}
   damageDealt: 1
   timeInAir: 2
-  decscendAnimationTime: 1.6
+  decscendAnimationTime: 0.6
