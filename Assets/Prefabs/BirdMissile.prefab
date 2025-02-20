@@ -4998,3 +4998,4 @@ MonoBehaviour:
   movementDuration: 0.75
   damage: 1
   hitSize: {x: 3, y: 3}
+  fadeOutTime: 0.5
