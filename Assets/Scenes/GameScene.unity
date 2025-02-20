@@ -2343,6 +2343,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 800632209}
+    - target: {fileID: 4529113339321856423, guid: 80171208583ea084b935deb8f4b5d42a, type: 3}
+      propertyPath: springConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 493cd1d97cbbb3d4b9e1331cbf29e9cc, type: 2}
     - target: {fileID: 5135577840392823973, guid: 80171208583ea084b935deb8f4b5d42a, type: 3}
       propertyPath: m_Name
       value: MagicBook
