@@ -25,7 +25,6 @@ public class Projectile : MonoBehaviour
 
     private void RotateTowardsBoss()
     {
-        Debug.Log("tets");
         Vector3 targetVector = new Vector3(target.x, target.y, 0);
         Vector2 direction = (targetVector - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -49,7 +48,7 @@ public class Projectile : MonoBehaviour
     }
 
     private void HandleCollision(GameObject collidedWith)
-    {            
+    {
         if (collidedWith.CompareTag(shooter)) return;
         if (collidedWith.GetComponent<Projectile>()) return;
         var parentDamageable = collidedWith.GetComponentInParent<IDamageable>();

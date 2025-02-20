@@ -11,6 +11,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Slash
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: DroppingMissiles
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3504030216262541616}
   m_Solo: 0
@@ -466,7 +469,7 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6273303010648113523}
-    m_Position: {x: 550, y: -60, z: 0}
+    m_Position: {x: 600, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 182318285266862292}
     m_Position: {x: 320, y: 60, z: 0}

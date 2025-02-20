@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 6
   numAttacks: 8
-  attackCooldown: 0.4
   screenSize: {x: 8.5, y: 6.5}
   missilePrefab: {fileID: 6005392280710315917, guid: ba3379399c877624cbc7fa54dbcd8ae0, type: 3}
+  animationEnterTime: 1.25
+  animationExitTime: 1
+  effectDuration: 2

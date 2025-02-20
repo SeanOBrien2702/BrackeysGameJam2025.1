@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Update()
     {
-        Debug.Log($"Boss {boss} valid {boss.IsValidTarget}");
         attackTimer += Time.deltaTime;
         if(attackTimer > attackCooldown && boss.IsValidTarget)
         {

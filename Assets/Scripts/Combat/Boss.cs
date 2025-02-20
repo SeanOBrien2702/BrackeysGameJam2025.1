@@ -67,6 +67,7 @@ public class Boss : MonoBehaviour, IDamageable
         {
             if (ability.ShouldUse())
             {
+                Debug.Log($"Casting {ability}", ability);
                 ability.Use(this);
             }
         }
