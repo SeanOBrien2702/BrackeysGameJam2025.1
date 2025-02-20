@@ -25,7 +25,6 @@ public class BirdMissileAbility : Ability
 
         caster.CanCast = false;
         caster.Animator.SetBool("DroppingMissiles", true);
-        caster.Animator.SetTrigger("DroppingMissilesTrigger");
 
         var missileTime = effectDuration / numAttacks;
 
